@@ -7,12 +7,11 @@ public class empwage
 	int isPresent=1;
 	int isAbsent=0;
 	int salary=0;
-	int wagePerHr=20;
-	int fullDayHrs=8;
-	int isParttime=0;
-	int isFulltime=1;
+	int wagePerHr=20,fullDayHrs=8;
+	int isParttime=0,isFulltime=1;
 	int totalSalary=0,totalDays=20;
 	int empRate=10,empHrs=0;
+	int day=0,maxHrs=100;
 
 
 	int empCheck = (int)Math.floor( Math.random() * 10) % 2;
@@ -24,12 +23,12 @@ public class empwage
 	System.out.println("Daily Employee wage salary is: " +salary);
 	}
 
-	 for(int day=1; day<=totalDays;day++)
+	 for(day=1; day<=totalDays;day++)
 		{
 			switch(empCheck)
 			{
 				case 1:
-					empHrs = 16;
+					empHrs = 4;
 					break;
 				case 2:
 					empHrs = 8;
@@ -51,7 +50,7 @@ public class empwage
 		else
 		{
 			System.out.println("Employee Working full time");
-		System.out.println("Total Salary = "+totalSalary);
+			System.out.println("Total Salary = "+totalSalary);
 		}
 	}
 
