@@ -1,57 +1,44 @@
 public class empwage
 {
-	public static void main(String args[])
-	{
+   public static final int IS_PART_TIME = 1;
+   public static final int IS_FULL_TIME = 2;
+   public static final int wagePerHrs = 20;
+   public static final int numWorkingDays = 2;
+   public static final int maxHrsInMonths = 10;
+  // Compute emp wage using class method
+   public static int computeEmpWage()
+   {
 
-		System.out.println("Welcome to EmpWageComputation");
-	int isPresent=1;
-	int isAbsent=0;
-	int salary=0;
-	int wagePerHr=20,fullDayHrs=8;
-	int isParttime=0,isFulltime=1;
-	int totalSalary=0,totalDays=20;
-	int empRate=10,empHrs=0;
-	int day=0,maxHrs=100;
+      int totalWorkingDays = 0;
+      int empHrs = 0;
+      int totalEmpHrs = 0;
+      while ( totalEmpHrs <= maxHrsInMonths && totalWorkingDays < numWorkingDays )
+       {
+         totalWorkingDays++;
+         int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+         switch (empCheck) {
 
+         case IS_FULL_TIME:
+                           empHrs=8;
+         break;
 
-	int empCheck = (int)Math.floor( Math.random() * 10) % 2;
+         case IS_PART_TIME:
+                           empHrs=4;
+         break;
+         default:
+                           empHrs=0;
+       }
+        totalEmpHrs += empHrs;
+        System.out.println("Day:" +totalWorkingDays + "Emp Hrs" +empHrs);
+       }
 
-	if ( empCheck == isPresent )
-	{
-	System.out.println("Employee is present");
-	salary = wagePerHr * fullDayHrs;
-	System.out.println("Daily Employee wage salary is: " +salary);
-	}
+       int totalEmpWage = totalEmpHrs * wagePerHrs;
+       System.out.printf("Total salary:" +totalEmpWage);
+       return totalEmpWage;
+    }
 
-	 for(day=1; day<=totalDays;day++)
-		{
-			switch(empCheck)
-			{
-				case 1:
-					empHrs = 4;
-					break;
-				case 2:
-					empHrs = 8;
-					break;
-				default:
-					empHrs = 0;
-					break;
-			}
-
-		 	salary = empHrs * empRate;
-			totalSalary = totalSalary + salary + salary;
-		}
-
-		if(empCheck == 0)
-		{
-			System.out.println("Employee Working part time");
-			System.out.println("Total Salary = "+totalSalary);
-		}
-		else
-		{
-			System.out.println("Employee Working full time");
-			System.out.println("Total Salary = "+totalSalary);
-		}
-	}
-
+public static void main(String[] args)
+{
+    computeEmpWage();
+}
 }
