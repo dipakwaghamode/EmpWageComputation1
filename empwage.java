@@ -15,29 +15,32 @@ public class empwage
 	int empRate=10;
 	int empHrs=0;
 
-	double AttendanceCheck = Math.floor( Math.random() * 10) % 2;
+	double empCheck = Math.floor( Math.random() * 10) % 2;
 	
-	if ( AttendanceCheck == isPresent )
+	if ( empCheck == isPresent )
 	{
 	System.out.println("Employee is present");
 	salary = wagePerHr * fullDayHrs;
 	System.out.println("Daily Employee wage salary is: " +salary);
 	}
 
-	if(AttendanceCheck == isFulltime)
+	 int choice = (int)empCheck;
+
+		switch(choice)
 		{
-			empHrs = 16;
-			System.out.println("Employee Working full time");
+			case 1:
+				empHrs = 16;
+				System.out.println("Employee Working full time.");
+				break;
+			case 2:
+				empHrs = 8;
+				System.out.println("Employee Working part time.");
+				break;
+			default:
+				System.out.println("Employee is absent");
+				break;
 		}
-		else if(AttendanceCheck == isParttime)
-		{
-			empHrs = 8;
-			System.out.println("Employee is Present and its working part time ");
-		}
-		else
-		{
-			System.out.println("Employee is absent");
-		}
+
 		totalSalary = empHrs * empRate;
 		System.out.println("Total Salary = "+totalSalary);
 	}
